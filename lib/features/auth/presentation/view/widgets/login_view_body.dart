@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+
+class LoginViewBody extends StatelessWidget {
+  const LoginViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Login View', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+    );
+  }
+}
