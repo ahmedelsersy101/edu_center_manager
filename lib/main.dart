@@ -1,7 +1,9 @@
 import 'package:edu_center_manager/core/utils/app_router.dart';
+import 'package:edu_center_manager/services/supabase_initialize.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  initialize();
   runApp(const EduCenterManager());
 }
 
