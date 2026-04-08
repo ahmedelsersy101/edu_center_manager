@@ -26,9 +26,6 @@ Future<Map<String, dynamic>> loginAndGetRole({
 
     if (profile == null) {
       // غالبًا سببها RLS Policies أو الصف مش موجود
-      print(
-        "Profile not accessible. تأكد أن الUID موجود في جدول profiles وأن السياسات RLS تسمح بالوصول.",
-      );
       throw Exception(
         "Profile not accessible. تحقق من RLS Policies أو وجود الصف في جدول profiles.",
       );
@@ -43,7 +40,6 @@ Future<Map<String, dynamic>> loginAndGetRole({
     // 4️⃣ إعادة البيانات
     return {'uid': uid, 'role': role};
   } catch (e) {
-    print("Login Error: $e");
     rethrow;
   }
 }

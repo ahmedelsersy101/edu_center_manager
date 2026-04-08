@@ -33,6 +33,7 @@ class _Colors {
 // ─── Light Theme ──────────────────────────────────────────────────────────────
 
 final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
+  
   colorScheme: const ColorScheme(
     brightness: Brightness.light,
     primary: Color(0xFF0A4B6E), // أزرار، شريط التنقل
@@ -71,6 +72,7 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
   ),
   cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: _Colors.skyMid),
   timePickerTheme: TimePickerThemeData(
+    
     backgroundColor: _Colors.skyDeep,
     dialBackgroundColor: _Colors.dawnWhite,
     dialHandColor: _Colors.skyBright,

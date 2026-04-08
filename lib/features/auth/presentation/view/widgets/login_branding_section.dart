@@ -1,0 +1,47 @@
+import 'package:edu_center_manager/core/utils/app_images.dart';
+import 'package:edu_center_manager/core/utils/app_style.dart';
+import 'package:edu_center_manager/features/auth/presentation/view/widgets/login_background_painter.dart';
+import 'package:flutter/material.dart';
+
+/// القسم الأزرق المشترك (اللوجو + النصوص + الخلفية) يُستخدم في Tablet و Desktop و Mobile
+class LoginBrandingSection extends StatelessWidget {
+  const LoginBrandingSection({super.key, this.topPadding = 80});
+
+  final double topPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      color: const Color(0xFF2F69F8),
+      child: CustomPaint(
+        painter: LoginBackgroundPainter(),
+        child: Column(
+          mainAxisAlignment:
+              MediaQuery.sizeOf(context).width < 1200 && MediaQuery.sizeOf(context).width > 800
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
+          children: [
+            SizedBox(height: topPadding),
+            Image.asset(Assets.logo, height: 140, color: Colors.white),
+            const SizedBox(height: 24),
+            Text(
+              'Login to your Account',
+              textAlign: TextAlign.center,
+              style: AppStyles.styleBold24(context).copyWith(color: Colors.white, fontSize: 32),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Enter your email and password to log in',
+              style: AppStyles.styleRegular14(
+                context,
+              ).copyWith(color: Colors.white.withOpacity(0.8)),
+            ),
+            const SizedBox(height: 40),
+          ],
+        ),
+      ),
+    );
+  }
+}

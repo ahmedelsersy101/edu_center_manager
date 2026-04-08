@@ -12,22 +12,14 @@ class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return SafeArea(
-      child: Scaffold(
-        appBar: MediaQuery.of(context).size.width < SizeConfig.tablet
-            ? AppBar(
-                backgroundColor: const Color(0xfffafafa),
-                elevation: 0,
-                foregroundColor: Colors.black,
-              )
-            : null,
-        drawer: MediaQuery.of(context).size.width < SizeConfig.tablet ? const CustomDrawer() : null,
-        backgroundColor: const Color(0xffE5E5E5),
-        body: AdaptiveLayout(
-          mobileLayout: (context) => const DashboardLayoutMobile(),
-          tabletLayout: (context) => const DashboardTabletLayout(),
-          desktopLayout: (context) => const DashboardDesktopLayout(),
-        ),
+    return Scaffold(
+      appBar: MediaQuery.of(context).size.width < SizeConfig.tablet ? AppBar() : null,
+      drawer: MediaQuery.of(context).size.width < SizeConfig.tablet ? const CustomDrawer() : null,
+      backgroundColor: const Color(0xffE5E5E5),
+      body: AdaptiveLayout(
+        mobileLayout: (context) => const DashboardLayoutMobile(),
+        tabletLayout: (context) => const DashboardTabletLayout(),
+        desktopLayout: (context) => const DashboardDesktopLayout(),
       ),
     );
   }

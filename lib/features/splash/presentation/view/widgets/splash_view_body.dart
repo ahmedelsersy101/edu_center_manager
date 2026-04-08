@@ -1,3 +1,4 @@
+import 'package:edu_center_manager/core/utils/app_images.dart';
 import 'package:edu_center_manager/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -76,11 +77,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
                   scale: _scaleAnimation.value,
                   child: Opacity(
                     opacity: _fadeAnimation.value,
-                    child: Image.asset(
-                      'assets/images/logo_center_mangmer.png',
-                      width: 350,
-                      height: 350,
-                    ),
+                    child: Image.asset(Assets.logo, width: 250, height: 250),
                   ),
                 ),
               );
@@ -93,7 +90,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(context).pushReplacement(AppRouter.kDashboardView);
+      GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
     });
   }
 }
