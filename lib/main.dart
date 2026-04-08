@@ -12,7 +12,7 @@ class EduCenterManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Center Manager',
+      title: 'EduCenter Manager',
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
     );
