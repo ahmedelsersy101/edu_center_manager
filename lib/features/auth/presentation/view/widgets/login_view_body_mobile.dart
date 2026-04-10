@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/utils/app_images.dart';
 import 'package:edu_center_manager/core/utils/app_style.dart';
 import 'package:edu_center_manager/features/auth/presentation/view/widgets/login_background_painter.dart';
@@ -24,21 +25,21 @@ class LoginViewBodyMobile extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(Assets.logo, height: 140, color: Colors.white),
-                  const SizedBox(height: 24),
+                  Image.asset(Assets.logo, height: 150, color: Colors.white),
+                  const SizedBox(height: 8),
                   Text(
-                    'Login to your Account',
+                    'appTitle'.tr(),
                     textAlign: TextAlign.center,
                     style: AppStyles.styleBold24(
                       context,
-                    ).copyWith(color: Colors.white, fontSize: 28),
+                    ).copyWith(color: Colors.white, fontSize: 32),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Enter your email and password to log in',
-                    style: AppStyles.styleRegular14(
+                    'enterYourEmailAndPasswordToLogIn'.tr(),
+                    style: AppStyles.styleRegular16(
                       context,
-                    ).copyWith(color: Colors.white.withOpacity(0.8)),
+                    ).copyWith(color: Colors.white.withOpacity(.9)),
                   ),
                 ],
               ),

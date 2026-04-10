@@ -1,0 +1,20 @@
+{
+  "language": "العربية",
+  "appTitle": "مدير المركز التعليمي",
+  "loginToYourAccount": "تسجيل الدخول إلى حسابك",
+  "enterYourEmailAndPasswordToLogIn": "أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول",
+  "welcomeToEduCenterManager": "أهلاً وسهلاً، يرجى إدخال بياناتك.",
+  "email": "البريد الألكتروني",
+  "password": "كلمة المرور",
+  "logIn": "تسجيل الدخول",
+  "welcome": "مرحبا",
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "dashboard": "لوحة التحكم",
+  "students": "الطلاب",
+  "teachers": "المعلمون",
+  "courses": "الدورات",
+  "groups": "المجموعات",
+  "attendance": "الحضور",
+  "settings": "الإعدادات"
+}

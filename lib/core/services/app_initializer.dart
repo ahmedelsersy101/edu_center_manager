@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -9,6 +10,9 @@ class AppInitializer {
     try {
       WidgetsFlutterBinding.ensureInitialized();
       await dotenv.load(fileName: ".env");
+
+      await EasyLocalization.ensureInitialized();
+
 
       await Supabase.initialize(
         url: dotenv.env['SUPABASE_URL']!,

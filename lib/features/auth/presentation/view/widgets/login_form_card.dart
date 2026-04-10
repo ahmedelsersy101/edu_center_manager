@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/utils/app_style.dart';
 import 'package:edu_center_manager/features/auth/presentation/view_model/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -48,30 +49,26 @@ class LoginFormCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Welcome , Please enter your details.',
-                style: AppStyles.styleRegular14(context).copyWith(
-                  color: Colors.grey,
-                ),
+                'welcomeToEduCenterManager'.tr(),
+                style: AppStyles.styleRegular16(context).copyWith(color: Colors.grey),
               ),
               const SizedBox(height: 32),
               // Email Field
               _LoginTextField(
                 controller: cubit.emailController,
-                label: 'Email',
+                label: 'email'.tr(),
                 prefixIcon: Icons.email_outlined,
               ),
               const SizedBox(height: 20),
               // Password Field
               _LoginTextField(
                 controller: cubit.passwordController,
-                label: 'Password',
+                label: 'password'.tr(),
                 prefixIcon: Icons.lock_outline,
                 obscureText: isObscure,
                 suffixIcon: IconButton(
                   icon: Icon(
-                    isObscure
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined,
+                    isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                     color: Colors.grey,
                   ),
                   onPressed: () => cubit.toggleObscure(),
@@ -85,25 +82,18 @@ class LoginFormCard extends StatelessWidget {
                   backgroundColor: const Color(0xFF2F69F8),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   elevation: 0,
                 ),
                 child: isLoading
                     ? const SizedBox(
                         height: 24,
                         width: 24,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2,
-                        ),
+                        child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
                       )
                     : Text(
-                        'Log In',
-                        style: AppStyles.styleBold18(context).copyWith(
-                          color: Colors.white,
-                        ),
+                        'logIn'.tr(),
+                        style: AppStyles.styleBold18(context).copyWith(color: Colors.white),
                       ),
               ),
             ],
