@@ -6,13 +6,10 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: Colors.white,
-        child: const CustomScrollView(slivers: [
+      child: Container(child: const CustomScrollView(slivers: [
           
           ],
-        ),
-      ),
+        )),
     );
   }
 }

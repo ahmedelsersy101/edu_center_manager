@@ -6,7 +6,10 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Home View', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+      child: Text(
+        'Home View',
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+      ),
     );
   }
 }

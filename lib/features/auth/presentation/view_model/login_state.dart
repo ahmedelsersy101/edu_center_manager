@@ -1,19 +1,21 @@
 part of 'login_cubit.dart';
 
-sealed class LoginState {}
+abstract class LoginState {}
 
-final class LoginInitial extends LoginState {}
+class LoginInitial extends LoginState {}
 
-final class LoginLoading extends LoginState {}
+class LoginLoading extends LoginState {}
 
-final class LoginSuccess extends LoginState {}
-
-final class LoginFailure extends LoginState {
-  final String message;
-  LoginFailure(this.message);
+class LoginFailure extends LoginState {
+  final String error;
+  LoginFailure(this.error);
 }
 
-final class LoginObscureToggled extends LoginState {
+class LoginObscureToggled extends LoginState {
   final bool isObscure;
   LoginObscureToggled(this.isObscure);
+}
+class LoginSuccess extends LoginState {
+  final String role; // اضافه متغير الدور
+  LoginSuccess(this.role);
 }

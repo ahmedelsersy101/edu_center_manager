@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 
 /// القسم الأزرق المشترك (اللوجو + النصوص + الخلفية) يُستخدم في Tablet و Desktop و Mobile
 class LoginBrandingSection extends StatelessWidget {
-  const LoginBrandingSection({super.key, this.topPadding = 80});
-
-  final double topPadding;
+  const LoginBrandingSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,6 @@ class LoginBrandingSection extends StatelessWidget {
               ? MainAxisAlignment.center
               : MainAxisAlignment.start,
           children: [
-            SizedBox(height: topPadding),
             Image.asset(Assets.logo, height: 140, color: Colors.white),
             const SizedBox(height: 24),
             Text(

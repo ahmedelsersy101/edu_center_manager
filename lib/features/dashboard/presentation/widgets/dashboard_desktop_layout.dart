@@ -1,3 +1,4 @@
+import 'package:edu_center_manager/features/dashboard/presentation/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class DashboardDesktopLayout extends StatelessWidget {
@@ -5,6 +6,14 @@ class DashboardDesktopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Desktop Dashboard Layout')));
+    return const Scaffold(
+      body: Row(
+        children: [
+          CustomDrawer(),
+          SizedBox(width: 40),
+          Center(child: Text('Desktop Dashboard Layout')),
+        ],
+      ),
+    );
   }
 }

@@ -1,4 +1,6 @@
-import 'package:edu_center_manager/features/auth/presentation/view/widgets/login_branding_section.dart';
+import 'package:edu_center_manager/core/utils/app_images.dart';
+import 'package:edu_center_manager/core/utils/app_style.dart';
+import 'package:edu_center_manager/features/auth/presentation/view/widgets/login_background_painter.dart';
 import 'package:edu_center_manager/features/auth/presentation/view/widgets/login_form_card.dart';
 import 'package:flutter/material.dart';
 
@@ -15,19 +17,48 @@ class LoginViewBodyDesktop extends StatelessWidget {
           Expanded(flex: 1, child: Container(color: Colors.white)),
           // القسم الأزرق المركزي مع الفورم بداخله
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Stack(
               children: [
-                const LoginBrandingSection(topPadding: 100),
-                Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        SizedBox(height: MediaQuery.sizeOf(context).height * 0.24),
-                        const LoginFormCard(),
-                        const SizedBox(height: 32),
-                      ],
-                    ),
+                Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  color: const Color(0xFF2F69F8),
+                  child: CustomPaint(painter: LoginBackgroundPainter()),
+                ),
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 24),
+                      Column(
+                        mainAxisAlignment:
+                            MediaQuery.sizeOf(context).width < 1200 &&
+                                MediaQuery.sizeOf(context).width > 800
+                            ? MainAxisAlignment.center
+                            : MainAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 8),
+                          Image.asset(Assets.logo, height: 140, color: Colors.white),
+                          const SizedBox(height: 24),
+                          Text(
+                            'Login to your Account',
+                            textAlign: TextAlign.center,
+                            style: AppStyles.styleBold24(
+                              context,
+                            ).copyWith(color: Colors.white, fontSize: 28),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Enter your email and password to log in',
+                            style: AppStyles.styleRegular14(
+                              context,
+                            ).copyWith(color: Colors.white.withOpacity(0.8)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 24),
+                      const LoginFormCard(padding: EdgeInsets.all(24), maxWidth: double.infinity),
+                    ],
                   ),
                 ),
               ],
