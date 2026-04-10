@@ -1,6 +1,5 @@
 import 'package:edu_center_manager/core/utils/size_config.dart';
 import 'package:edu_center_manager/features/dashboard/presentation/widgets/adaptive_layout.dart';
-import 'package:edu_center_manager/features/dashboard/presentation/widgets/custom_drawer.dart';
 import 'package:edu_center_manager/features/dashboard/presentation/widgets/dashboard_desktop_layout.dart';
 import 'package:edu_center_manager/features/dashboard/presentation/widgets/dashboard_layout_mobile.dart';
 import 'package:edu_center_manager/features/dashboard/presentation/widgets/dashboard_tablet_layout.dart';
@@ -13,8 +12,7 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Scaffold(
-      appBar: MediaQuery.of(context).size.width < SizeConfig.desktop ? AppBar() : null,
-      drawer: MediaQuery.of(context).size.width < SizeConfig.desktop ? const CustomDrawer() : null,
+     
       backgroundColor: const Color(0xffE5E5E5),
       body: AdaptiveLayout(
         mobileLayout: (context) => const DashboardLayoutMobile(),

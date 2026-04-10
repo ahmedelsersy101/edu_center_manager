@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class _Colors {
+class AppColors {
   // ── Sky Blues ───────────────────────────────────────────────────
   static const skyDeep = Color(0xFF0A4B6E); // أزرق سماوي عميق
   static const skyMid = Color(0xFF1275A0); // سماوي متوسط
@@ -37,60 +37,60 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
   colorScheme: const ColorScheme(
     brightness: Brightness.light,
     primary: Color(0xFF0A4B6E), // أزرار، شريط التنقل
-    onPrimary: _Colors.cloudWhite,
-    secondary: _Colors.cloudWhite, // خلفية كروت
-    onSecondary: _Colors.inkNavy,
-    error: _Colors.mistBlue,
-    onError: _Colors.silverBlue,
-    surface: _Colors.skyMid, // timeline، حلقة التقدم، حدود
-    onSurface: _Colors.inkNavy,
-    inversePrimary: _Colors.inkNavy, // ← النص الرئيسي
-    inverseSurface: _Colors.gold, // ← الذهبي
-    primaryContainer: _Colors.cloudWhite, // bottom-sheets
-    onPrimaryContainer: _Colors.mistBlue,
-    onInverseSurface: _Colors.inkNavy,
-    surfaceContainer: _Colors.dawnWhite, // scaffold
-    secondaryContainer: _Colors.cloudWhite,
+    onPrimary: AppColors.cloudWhite,
+    secondary: AppColors.cloudWhite, // خلفية كروت
+    onSecondary: AppColors.inkNavy,
+    error: AppColors.mistBlue,
+    onError: AppColors.silverBlue,
+    surface: AppColors.skyMid, // timeline، حلقة التقدم، حدود
+    onSurface: AppColors.inkNavy,
+    inversePrimary: AppColors.inkNavy, // ← النص الرئيسي
+    inverseSurface: AppColors.gold, // ← الذهبي
+    primaryContainer: AppColors.cloudWhite, // bottom-sheets
+    onPrimaryContainer: AppColors.mistBlue,
+    onInverseSurface: AppColors.inkNavy,
+    surfaceContainer: AppColors.dawnWhite, // scaffold
+    secondaryContainer: AppColors.cloudWhite,
   ),
-  primaryColor: _Colors.skyDeep,
-  primaryColorLight: _Colors.skyBright,
-  primaryColorDark: _Colors.inkNavy,
-  dividerColor: _Colors.mistBlue,
-  highlightColor: _Colors.skyBright.withValues(alpha: 0.18),
-  scaffoldBackgroundColor: _Colors.dawnWhite,
-  canvasColor: _Colors.pearlWhite,
-  hoverColor: _Colors.skyMist.withValues(alpha: 0.40),
-  disabledColor: _Colors.silverBlue,
-  hintColor: _Colors.silverBlue,
-  focusColor: _Colors.skyMid,
-  secondaryHeaderColor: _Colors.skyMid,
-  cardColor: _Colors.cloudWhite,
-  dividerTheme: const DividerThemeData(color: _Colors.mistBlue, thickness: 1),
+  primaryColor: AppColors.skyDeep,
+  primaryColorLight: AppColors.skyBright,
+  primaryColorDark: AppColors.inkNavy,
+  dividerColor: AppColors.mistBlue,
+  highlightColor: AppColors.skyBright.withValues(alpha: 0.18),
+  scaffoldBackgroundColor: AppColors.dawnWhite,
+  canvasColor: AppColors.pearlWhite,
+  hoverColor: AppColors.skyMist.withValues(alpha: 0.40),
+  disabledColor: AppColors.silverBlue,
+  hintColor: AppColors.silverBlue,
+  focusColor: AppColors.skyMid,
+  secondaryHeaderColor: AppColors.skyMid,
+  cardColor: AppColors.cloudWhite,
+  dividerTheme: const DividerThemeData(color: AppColors.mistBlue, thickness: 1),
   textSelectionTheme: TextSelectionThemeData(
-    selectionColor: _Colors.skyBright.withValues(alpha: 0.28),
-    selectionHandleColor: _Colors.skyMid,
+    selectionColor: AppColors.skyBright.withValues(alpha: 0.28),
+    selectionHandleColor: AppColors.skyMid,
   ),
-  cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: _Colors.skyMid),
+  cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: AppColors.skyMid),
   timePickerTheme: TimePickerThemeData(
     
-    backgroundColor: _Colors.skyDeep,
-    dialBackgroundColor: _Colors.dawnWhite,
-    dialHandColor: _Colors.skyBright,
-    dialTextColor: _Colors.inkNavy.withValues(alpha: .75),
-    entryModeIconColor: _Colors.pearlWhite.withValues(alpha: .7),
-    hourMinuteTextColor: _Colors.pearlWhite.withValues(alpha: .90),
-    dayPeriodTextColor: _Colors.pearlWhite.withValues(alpha: .90),
+    backgroundColor: AppColors.skyDeep,
+    dialBackgroundColor: AppColors.dawnWhite,
+    dialHandColor: AppColors.skyBright,
+    dialTextColor: AppColors.inkNavy.withValues(alpha: .75),
+    entryModeIconColor: AppColors.pearlWhite.withValues(alpha: .7),
+    hourMinuteTextColor: AppColors.pearlWhite.withValues(alpha: .90),
+    dayPeriodTextColor: AppColors.pearlWhite.withValues(alpha: .90),
     cancelButtonStyle: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(_Colors.nightSteel),
-      foregroundColor: WidgetStateProperty.all(_Colors.pearlWhite),
+      backgroundColor: WidgetStateProperty.all(AppColors.nightSteel),
+      foregroundColor: WidgetStateProperty.all(AppColors.pearlWhite),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       textStyle: WidgetStateProperty.all(const TextStyle(fontFamily: 'cairo', fontSize: 16)),
     ),
     confirmButtonStyle: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(_Colors.skyBright),
-      foregroundColor: WidgetStateProperty.all(_Colors.cloudWhite),
+      backgroundColor: WidgetStateProperty.all(AppColors.skyBright),
+      foregroundColor: WidgetStateProperty.all(AppColors.cloudWhite),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
@@ -102,7 +102,7 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
       fontWeight: FontWeight.bold,
       fontFamily: 'cairo',
       fontSize: 12,
-      color: _Colors.inkNavy,
+      color: AppColors.inkNavy,
     ),
   ),
 );
@@ -112,61 +112,61 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
 final ThemeData darkTheme = ThemeData.dark(useMaterial3: false).copyWith(
   colorScheme: const ColorScheme(
     brightness: Brightness.dark,
-    primary: _Colors.nightDeep,
-    onPrimary: _Colors.nightAbyss,
-    secondary: _Colors.pearlWhite,
-    onSecondary: _Colors.nightSteel,
-    error: _Colors.nightDeep,
-    onError: _Colors.nightAbyss,
-    surface: _Colors.skyLight, // timeline، حلقة التقدم — يضيء على الداكن
-    onSurface: _Colors.nightAbyss,
-    inversePrimary: _Colors.pearlWhite, // ← النص الرئيسي
-    inverseSurface: _Colors.goldSoft, // ← الذهبي الناعم
-    primaryContainer: _Colors.nightDeep, // bottom-sheets
-    onPrimaryContainer: _Colors.nightMid,
-    onInverseSurface: _Colors.nightAbyss,
-    surfaceContainer: _Colors.nightMid,
-    secondaryContainer: _Colors.nightSteel,
+    primary: AppColors.nightDeep,
+    onPrimary: AppColors.nightAbyss,
+    secondary: AppColors.pearlWhite,
+    onSecondary: AppColors.nightSteel,
+    error: AppColors.nightDeep,
+    onError: AppColors.nightAbyss,
+    surface: AppColors.skyLight, // timeline، حلقة التقدم — يضيء على الداكن
+    onSurface: AppColors.nightAbyss,
+    inversePrimary: AppColors.pearlWhite, // ← النص الرئيسي
+    inverseSurface: AppColors.goldSoft, // ← الذهبي الناعم
+    primaryContainer: AppColors.nightDeep, // bottom-sheets
+    onPrimaryContainer: AppColors.nightMid,
+    onInverseSurface: AppColors.nightAbyss,
+    surfaceContainer: AppColors.nightMid,
+    secondaryContainer: AppColors.nightSteel,
   ),
-  primaryColor: _Colors.nightSteel,
-  primaryColorLight: _Colors.nightMid,
-  primaryColorDark: _Colors.nightAbyss,
-  dividerColor: _Colors.nightMid,
-  highlightColor: _Colors.skyLight.withValues(alpha: 0.14),
-  scaffoldBackgroundColor: _Colors.nightAbyss,
-  canvasColor: _Colors.pearlWhite,
-  hoverColor: _Colors.pearlWhite.withValues(alpha: 0.08),
-  disabledColor: _Colors.nightAbyss,
-  hintColor: _Colors.pearlWhite,
-  focusColor: _Colors.nightDeep,
-  secondaryHeaderColor: _Colors.nightDeep,
-  cardColor: _Colors.pearlWhite,
-  dividerTheme: const DividerThemeData(color: _Colors.nightMid, thickness: 1),
+  primaryColor: AppColors.nightSteel,
+  primaryColorLight: AppColors.nightMid,
+  primaryColorDark: AppColors.nightAbyss,
+  dividerColor: AppColors.nightMid,
+  highlightColor: AppColors.skyLight.withValues(alpha: 0.14),
+  scaffoldBackgroundColor: AppColors.nightAbyss,
+  canvasColor: AppColors.pearlWhite,
+  hoverColor: AppColors.pearlWhite.withValues(alpha: 0.08),
+  disabledColor: AppColors.nightAbyss,
+  hintColor: AppColors.pearlWhite,
+  focusColor: AppColors.nightDeep,
+  secondaryHeaderColor: AppColors.nightDeep,
+  cardColor: AppColors.pearlWhite,
+  dividerTheme: const DividerThemeData(color: AppColors.nightMid, thickness: 1),
   textSelectionTheme: TextSelectionThemeData(
-    selectionColor: _Colors.skyLight.withValues(alpha: 0.25),
-    selectionHandleColor: _Colors.skyLight,
+    selectionColor: AppColors.skyLight.withValues(alpha: 0.25),
+    selectionHandleColor: AppColors.skyLight,
   ),
-  cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: _Colors.skyLight),
+  cupertinoOverrideTheme: const CupertinoThemeData(primaryColor: AppColors.skyLight),
   timePickerTheme: TimePickerThemeData(
-    backgroundColor: _Colors.nightMid,
-    dialBackgroundColor: _Colors.nightSteel,
-    dialHandColor: _Colors.skyLight,
-    dialTextColor: _Colors.pearlWhite.withValues(alpha: .75),
-    entryModeIconColor: _Colors.pearlWhite.withValues(alpha: .6),
-    hourMinuteTextColor: _Colors.pearlWhite.withValues(alpha: .85),
-    dayPeriodTextColor: _Colors.pearlWhite.withValues(alpha: .85),
-    dayPeriodColor: _Colors.nightSteel,
+    backgroundColor: AppColors.nightMid,
+    dialBackgroundColor: AppColors.nightSteel,
+    dialHandColor: AppColors.skyLight,
+    dialTextColor: AppColors.pearlWhite.withValues(alpha: .75),
+    entryModeIconColor: AppColors.pearlWhite.withValues(alpha: .6),
+    hourMinuteTextColor: AppColors.pearlWhite.withValues(alpha: .85),
+    dayPeriodTextColor: AppColors.pearlWhite.withValues(alpha: .85),
+    dayPeriodColor: AppColors.nightSteel,
     cancelButtonStyle: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(_Colors.pearlWhite.withValues(alpha: .10)),
-      foregroundColor: WidgetStateProperty.all(_Colors.pearlWhite),
+      backgroundColor: WidgetStateProperty.all(AppColors.pearlWhite.withValues(alpha: .10)),
+      foregroundColor: WidgetStateProperty.all(AppColors.pearlWhite),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       textStyle: WidgetStateProperty.all(const TextStyle(fontFamily: 'cairo', fontSize: 16)),
     ),
     confirmButtonStyle: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(_Colors.skyLight),
-      foregroundColor: WidgetStateProperty.all(_Colors.nightAbyss),
+      backgroundColor: WidgetStateProperty.all(AppColors.skyLight),
+      foregroundColor: WidgetStateProperty.all(AppColors.nightAbyss),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
@@ -178,7 +178,7 @@ final ThemeData darkTheme = ThemeData.dark(useMaterial3: false).copyWith(
       fontWeight: FontWeight.bold,
       fontFamily: 'cairo',
       fontSize: 12,
-      color: _Colors.nightDeep,
+      color: AppColors.nightDeep,
     ),
   ),
 );
