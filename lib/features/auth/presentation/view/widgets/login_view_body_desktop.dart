@@ -17,7 +17,7 @@ class LoginViewBodyDesktop extends StatelessWidget {
           Expanded(flex: 1, child: Container(color: Colors.white)),
           // القسم الأزرق المركزي مع الفورم بداخله
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Stack(
               children: [
                 Container(
@@ -29,13 +29,9 @@ class LoginViewBodyDesktop extends StatelessWidget {
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      SizedBox(height: 24),
+                      SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
                       Column(
-                        mainAxisAlignment:
-                            MediaQuery.sizeOf(context).width < 1200 &&
-                                MediaQuery.sizeOf(context).width > 800
-                            ? MainAxisAlignment.center
-                            : MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(height: 8),
                           Image.asset(Assets.logo, height: 140, color: Colors.white),
@@ -56,8 +52,14 @@ class LoginViewBodyDesktop extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 24),
-                      const LoginFormCard(padding: EdgeInsets.all(24), maxWidth: double.infinity),
+                      SizedBox(height: 48),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 48),
+                        child: LoginFormCard(
+                          padding: EdgeInsets.all(24),
+                          maxWidth: double.infinity,
+                        ),
+                      ),
                     ],
                   ),
                 ),

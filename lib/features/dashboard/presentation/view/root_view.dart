@@ -1,16 +1,37 @@
-import 'package:edu_center_manager/features/dashboard/presentation/widgets/dashboard_layout_mobile.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:edu_center_manager/features/attendance/presentation/view/attendance_view.dart';
+import 'package:edu_center_manager/features/dashboard/presentation/view/home_view.dart';
+import 'package:edu_center_manager/features/dashboard/presentation/view/reports_view.dart';
+import 'package:edu_center_manager/features/payments/presentation/view/payments_view.dart';
+import 'package:edu_center_manager/features/settings/presentation/view/settings_view.dart';
+import 'package:edu_center_manager/core/widgets/drawer_page.dart';
+import 'package:edu_center_manager/features/students/presentation/view/students_view.dart';
+import 'package:edu_center_manager/features/teachers/presentation/view/teachers_view.dart';
+import 'package:edu_center_manager/features/courses/presentation/view/courses_view.dart';
+import 'package:edu_center_manager/features/groups/presentation/view/groups_view.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class RootView extends StatefulWidget {
-  const RootView({super.key});
+  final VoidCallback? onDashboardTabTap;
+  final ValueChanged<int>? onTabChanged;
+  const RootView({super.key, this.onDashboardTabTap, this.onTabChanged});
 
   @override
-  State<RootView> createState() => _RootViewState();
+  State<RootView> createState() => RootViewState();
 }
 
-class _RootViewState extends State<RootView> {
+class RootViewState extends State<RootView> {
   late final PersistentTabController _controller;
+  DrawerPage _currentDashboardPage = DrawerPage.home;
+
+  void setDashboardPage(DrawerPage page) {
+    setState(() {
+      _currentDashboardPage = page;
+    });
+    _controller.jumpToTab(0);
+    widget.onTabChanged?.call(0);
+  }
 
   @override
   void initState() {
@@ -18,13 +39,28 @@ class _RootViewState extends State<RootView> {
     _controller = PersistentTabController(initialIndex: 0);
   }
 
+  Widget _buildDashboardPage() {
+    switch (_currentDashboardPage) {
+      case DrawerPage.students:
+        return const StudentsView();
+      case DrawerPage.teachers:
+        return const TeachersView();
+      case DrawerPage.courses:
+        return const CoursesView();
+      case DrawerPage.groups:
+        return const GroupsView();
+      default:
+        return const HomeView();
+    }
+  }
+
   List<Widget> _buildScreens() {
-    return const [
-      MobileTabPage(title: 'Dashboard'),
-      MobileTabPage(title: 'Attendance'),
-      MobileTabPage(title: 'Reports'),
-      MobileTabPage(title: 'Payments'),
-      MobileTabPage(title: 'Settings'),
+    return [
+      _buildDashboardPage(),
+      const AttendanceView(),
+      const PaymentsView(),
+      const ReportsView(),
+      const SettingsView(),
     ];
   }
 
@@ -32,32 +68,32 @@ class _RootViewState extends State<RootView> {
     return [
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.dashboard_outlined),
-        title: 'Dashboard',
-        activeColorPrimary: Colors.blue,
-        inactiveColorPrimary: Colors.grey,
+        title: 'dashboard'.tr(),
+        // activeColorPrimary: Colors.blue,
+        // inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.person),
-        title: 'Attendance',
-        activeColorPrimary: Colors.blue,
-        inactiveColorPrimary: Colors.grey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.receipt_long_rounded),
-        title: 'Reports',
+        title: 'attendance'.tr(),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.payments_outlined),
-        title: 'payments',
+        title: 'payments'.tr(),
+        activeColorPrimary: Colors.blue,
+        inactiveColorPrimary: Colors.grey,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.receipt_long_rounded),
+        title: 'reports'.tr(),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
 
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.settings_outlined),
-        title: 'Settings',
+        title: 'settings'.tr(),
         activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
@@ -73,6 +109,17 @@ class _RootViewState extends State<RootView> {
       items: _navBarsItems(),
       navBarStyle: NavBarStyle.style9,
       backgroundColor: Colors.white,
+      onItemSelected: (index) {
+        widget.onTabChanged?.call(index);
+        if (index == 0) {
+          widget.onDashboardTabTap?.call();
+          if (_currentDashboardPage != DrawerPage.home) {
+            setState(() {
+              _currentDashboardPage = DrawerPage.home;
+            });
+          }
+        }
+      },
       popBehaviorOnSelectedNavBarItemPress: PopBehavior.once,
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,

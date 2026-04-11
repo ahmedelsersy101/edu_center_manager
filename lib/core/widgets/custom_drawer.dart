@@ -1,12 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:edu_center_manager/core/models/user_info_model.dart';
+import 'package:edu_center_manager/core/utils/app_images.dart';
+import 'package:edu_center_manager/core/utils/app_style.dart';
 import 'package:edu_center_manager/core/utils/app_themes.dart';
 import 'package:edu_center_manager/core/widgets/drawer_page.dart';
 import 'package:edu_center_manager/core/widgets/list_view_drawer_item.dart';
+import 'package:edu_center_manager/core/widgets/user_info_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key, this.onItemSelected});
+  const CustomDrawer({super.key, this.onItemSelected, this.isMobile = false, this.activePage});
   final Function(int index, DrawerPage page)? onItemSelected;
+  final bool isMobile;
+  final DrawerPage? activePage;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +20,6 @@ class CustomDrawer extends StatelessWidget {
       backgroundColor: AppColors.skyDeep,
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 50)),
-          // SliverToBoxAdapter(
-          //   child: Divider(color: Theme.of(context).colorScheme.surface, height: 1, thickness: 1),
-          // ),
           SliverToBoxAdapter(
             child: Container(
               height: 120,
@@ -26,14 +28,10 @@ class CustomDrawer extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.dashboard, size: 50),
-                    SizedBox(height: 10),
+                    Image.asset(Assets.logo, height: 70, color: Colors.white),
                     FittedBox(
                       fit: BoxFit.scaleDown,
-                      child: Text(
-                        'appTitle'.tr(),
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('appTitle'.tr(), style: AppStyles.styleRegular16(context)),
                     ),
                   ],
                 ),
@@ -43,7 +41,24 @@ class CustomDrawer extends StatelessWidget {
           SliverToBoxAdapter(
             child: Divider(color: Theme.of(context).colorScheme.surface, height: 1, thickness: 1),
           ),
-          ListViewDrawerItem(onItemSelected: onItemSelected),
+          SliverToBoxAdapter(
+            child: UserInfoListTile(
+              userInfoModel: UserInfoModel(
+                image: Assets.logo,
+                title: 'Admin',
+                subTitle: 'admin@edu.com',
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Divider(color: Theme.of(context).colorScheme.surface, height: 1, thickness: 1),
+          ),
+
+          ListViewDrawerItem(
+            onItemSelected: onItemSelected,
+            isMobile: isMobile,
+            activePage: activePage,
+          ),
         ],
       ),
     );

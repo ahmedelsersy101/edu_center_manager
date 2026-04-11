@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/services/app_initializer.dart';
 import 'package:edu_center_manager/core/utils/app_router.dart';
@@ -10,11 +11,15 @@ void main() async {
   await AppInitializer.getInitialRoute();
   final router = AppRouter.getRouter(initialRoute: AppRouter.kSplashView);
   runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale("ar"), Locale('en')],
-      fallbackLocale: Locale('ar'),
-      path: 'assets/translations',
-      child: EduCenterManager(router: router),
+    DevicePreview(
+      enabled: false,
+      builder: (context) => EasyLocalization(
+        supportedLocales: const [Locale("ar"), Locale('en')],
+        fallbackLocale: Locale('ar'),
+        startLocale: Locale('ar'),
+        path: 'assets/translations',
+        child: EduCenterManager(router: router),
+      ),
     ),
   );
 }
@@ -26,7 +31,7 @@ class EduCenterManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'EduCenter Manager',
+      title: 'appTitle'.tr(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

@@ -1,35 +1,49 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/models/drawer_item_model.dart';
-import 'package:edu_center_manager/core/utils/size_config.dart';
 import 'package:edu_center_manager/core/widgets/drawer_item.dart';
 import 'package:edu_center_manager/core/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 
 class ListViewDrawerItem extends StatefulWidget {
   final Function(int index, DrawerPage page)? onItemSelected;
+  final bool isMobile;
+  final DrawerPage? activePage;
 
-  const ListViewDrawerItem({super.key, this.onItemSelected});
+  const ListViewDrawerItem({
+    super.key,
+    this.onItemSelected,
+    this.isMobile = false,
+    this.activePage,
+  });
 
   @override
   State<ListViewDrawerItem> createState() => _ListViewDrawerItemState();
 }
 
 class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
-  int selectedIndex = 0;
 
   final List<DrawerItemModel> drawerItems = [
-    const DrawerItemModel(title: 'Students Management', icon: Icons.person_4_sharp),
-    const DrawerItemModel(title: 'Teachers Management', icon: Icons.co_present_outlined),
-    const DrawerItemModel(title: 'Courses Management', icon: Icons.cast_for_education),
-    const DrawerItemModel(title: 'Groups Management', icon: Icons.groups_2),
-    const DrawerItemModel(title: 'Payments Management', icon: Icons.payments_outlined),
+    DrawerItemModel(title: 'dashboard'.tr(), icon: Icons.dashboard_outlined),
+    DrawerItemModel(title: 'studentsManagement'.tr(), icon: Icons.person_4_sharp),
+    DrawerItemModel(title: 'teachersManagement'.tr(), icon: Icons.co_present_outlined),
+    DrawerItemModel(title: 'coursesManagement'.tr(), icon: Icons.cast_for_education),
+    DrawerItemModel(title: 'groupsManagement'.tr(), icon: Icons.groups_2),
+    DrawerItemModel(title: 'attendanceManagement'.tr(), icon: Icons.check_circle_outline),
+    DrawerItemModel(title: 'paymentsManagement'.tr(), icon: Icons.payments_outlined),
+    DrawerItemModel(title: 'paymentsReport'.tr(), icon: Icons.receipt_long_outlined),
+    DrawerItemModel(title: 'attendanceReport'.tr(), icon: Icons.report_outlined),
   ];
 
   final List<DrawerPage> drawerPages = [
+    DrawerPage.home,
     DrawerPage.students,
     DrawerPage.teachers,
     DrawerPage.courses,
     DrawerPage.groups,
+    DrawerPage.attendance,
     DrawerPage.payments,
+    DrawerPage.paymentsReport,
+    DrawerPage.attendReport,
   ];
 
   @override
@@ -40,11 +54,19 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
     final filteredPages = <DrawerPage>[];
 
     for (int i = 0; i < drawerItems.length; i++) {
-      if (screenWidth >= SizeConfig.desktop && drawerItems[i].title == 'app.stats') {
-        continue; // متعرضش Stats في الديسكتوب
+      if (widget.isMobile) {
+        // Only add Students, Teachers, Courses, Groups
+        if (drawerPages[i] == DrawerPage.students ||
+            drawerPages[i] == DrawerPage.teachers ||
+            drawerPages[i] == DrawerPage.courses ||
+            drawerPages[i] == DrawerPage.groups) {
+          filteredItems.add(drawerItems[i]);
+          filteredPages.add(drawerPages[i]);
+        }
+      } else {
+        filteredItems.add(drawerItems[i]);
+        filteredPages.add(drawerPages[i]);
       }
-      filteredItems.add(drawerItems[i]);
-      filteredPages.add(drawerPages[i]);
     }
 
     return SliverList.builder(
@@ -52,10 +74,7 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            if (selectedIndex != index) {
-              setState(() {
-                selectedIndex = index;
-              });
+            if (widget.activePage != filteredPages[index]) {
               widget.onItemSelected?.call(index, filteredPages[index]);
             }
           },
@@ -63,7 +82,7 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
             padding: const EdgeInsets.only(top: 20),
             child: DrawerItem(
               drawerItemModel: filteredItems[index],
-              isSelected: selectedIndex == index,
+              isSelected: widget.activePage == filteredPages[index],
             ),
           ),
         );
@@ -71,11 +90,6 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
     );
   }
 
-  void updateSelectedIndex(int index) {
-    if (mounted) {
-      setState(() {
-        selectedIndex = index;
-      });
-    }
-  }
+  // We no longer need updateSelectedIndex as state is driven by activePage
+
 }

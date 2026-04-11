@@ -1,1 +1,11 @@
-enum DrawerPage { students, teachers, courses, groups, payments }
+enum DrawerPage {
+  home,
+  students,
+  teachers,
+  courses,
+  groups,
+  attendance,
+  payments,
+  paymentsReport,
+  attendReport,
+}

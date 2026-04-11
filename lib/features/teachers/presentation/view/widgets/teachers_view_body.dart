@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class TeachersViewBody extends StatelessWidget {
@@ -5,6 +6,6 @@ class TeachersViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Teachers View Body'));
+    return Center(child: Text('teachers').tr());
   }
 }
