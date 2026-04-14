@@ -35,7 +35,8 @@ class StudentsService {
     return StudentModel.fromJson(Map<String, dynamic>.from(response as Map));
   }
 
-  Future<void> deleteStudent(String id) async {
-    await client.from(table).delete().eq('id', id);
+  Future<StudentModel> deleteStudent(String id) async {
+    final response = await client.from(table).delete().eq('id', id).select().single();
+    return StudentModel.fromJson(Map<String, dynamic>.from(response as Map));
   }
 }
