@@ -2,30 +2,29 @@ import 'package:easy_localization/easy_localization.dart';
 
 class GradeHelper {
   static const List<String> selectGradeKeys = [
-    'all',
-    'grade one prep',
-    'grade two prep',
-    'grade three prep',
-    'grade one sec',
-    'grade two sec',
-    'grade three sec',
+    'grade1Prep',
+    'grade2Prep',
+    'grade3Prep',
+    'grade1Sec',
+    'grade2Sec',
+    'grade3Sec',
   ];
 
   static String gradeKeys(String? grade) {
     if (grade == null) return '--';
     switch (grade) {
       case 'الصف الأول الإعدادي':
-        return 'grade one prep';
+        return 'grade1Prep';
       case 'الصف الثاني الإعدادي':
-        return 'grade two prep';
+        return 'grade2Prep';
       case 'الصف الثالث الإعدادي':
-        return 'grade three prep';
+        return 'grade3Prep';
       case 'الصف الأول الثانوي':
-        return 'grade one sec';
+        return 'grade1Sec';
       case 'الصف الثاني الثانوي':
-        return 'grade two sec';
+        return 'grade2Sec';
       case 'الصف الثالث الثانوي':
-        return 'grade three sec';
+        return 'grade3Sec';
       case 'الكل':
         return 'all';
       default:
