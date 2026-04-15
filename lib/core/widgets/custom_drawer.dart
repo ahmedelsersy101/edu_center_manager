@@ -53,7 +53,6 @@ class CustomDrawer extends StatelessWidget {
           SliverToBoxAdapter(
             child: Divider(color: Theme.of(context).colorScheme.surface, height: 1, thickness: 1),
           ),
-
           ListViewDrawerItem(
             onItemSelected: onItemSelected,
             isMobile: isMobile,

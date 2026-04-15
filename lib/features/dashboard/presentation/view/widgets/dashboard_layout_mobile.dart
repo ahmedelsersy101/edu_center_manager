@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/widgets/drawer_page.dart';
-import 'package:edu_center_manager/features/dashboard/presentation/view/root_view.dart';
+import 'package:edu_center_manager/features/dashboard/presentation/view/widgets/root_view.dart';
 import 'package:edu_center_manager/core/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -14,19 +14,17 @@ class DashboardLayoutMobile extends StatefulWidget {
 class _DashboardLayoutMobileState extends State<DashboardLayoutMobile> {
   final GlobalKey<RootViewState> _rootViewKey = GlobalKey<RootViewState>();
   DrawerPage _currentDashboardPage = DrawerPage.home;
-  int _currentTabIndex = 0;
+  int _currentTabIndex = 1;
 
   String get _appBarTitle {
-    if (_currentTabIndex == 0) {
+    if (_currentTabIndex == 1) {
       switch (_currentDashboardPage) {
         case DrawerPage.home:
-          return 'dashboard'.tr();
+          return 'home'.tr();
         case DrawerPage.students:
           return 'studentsManagement'.tr();
         case DrawerPage.teachers:
           return 'teachersManagement'.tr();
-        case DrawerPage.courses:
-          return 'coursesManagement'.tr();
         case DrawerPage.groups:
           return 'groupsManagement'.tr();
         case DrawerPage.attendance:
@@ -41,13 +39,9 @@ class _DashboardLayoutMobileState extends State<DashboardLayoutMobile> {
     }
 
     switch (_currentTabIndex) {
-      case 1:
-        return 'attendance'.tr();
-      case 2:
-        return 'payments'.tr();
-      case 3:
+      case 0:
         return 'reports'.tr();
-      case 4:
+      case 2:
         return 'settings'.tr();
       default:
         return 'appTitle'.tr();

@@ -1,8 +1,7 @@
 import 'package:edu_center_manager/core/widgets/drawer_page.dart';
 import 'package:edu_center_manager/features/attendance/presentation/view/attendance_view.dart';
 import 'package:edu_center_manager/features/attendance/presentation/view/widgets/attendance_report_view.dart';
-import 'package:edu_center_manager/features/courses/presentation/view/courses_view.dart';
-import 'package:edu_center_manager/features/dashboard/presentation/view/home_view.dart';
+import 'package:edu_center_manager/features/dashboard/presentation/view/widgets/home_view.dart';
 import 'package:edu_center_manager/core/widgets/custom_drawer.dart';
 import 'package:edu_center_manager/features/groups/presentation/view/groups_view.dart';
 import 'package:edu_center_manager/features/payments/presentation/view/payments_view.dart';
@@ -26,7 +25,6 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
       DrawerPage.home => const HomeView(),
       DrawerPage.students => const StudentsView(),
       DrawerPage.teachers => const TeachersView(),
-      DrawerPage.courses => const CoursesView(),
       DrawerPage.groups => const GroupsView(),
       DrawerPage.attendance => const AttendanceView(),
       DrawerPage.payments => const PaymentsView(),

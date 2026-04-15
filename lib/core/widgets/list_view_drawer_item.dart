@@ -21,12 +21,10 @@ class ListViewDrawerItem extends StatefulWidget {
 }
 
 class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
-
   final List<DrawerItemModel> drawerItems = [
     DrawerItemModel(title: 'dashboard'.tr(), icon: Icons.dashboard_outlined),
     DrawerItemModel(title: 'studentsManagement'.tr(), icon: Icons.person_4_sharp),
     DrawerItemModel(title: 'teachersManagement'.tr(), icon: Icons.co_present_outlined),
-    DrawerItemModel(title: 'coursesManagement'.tr(), icon: Icons.cast_for_education),
     DrawerItemModel(title: 'groupsManagement'.tr(), icon: Icons.groups_2),
     DrawerItemModel(title: 'attendanceManagement'.tr(), icon: Icons.check_circle_outline),
     DrawerItemModel(title: 'paymentsManagement'.tr(), icon: Icons.payments_outlined),
@@ -38,7 +36,6 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
     DrawerPage.home,
     DrawerPage.students,
     DrawerPage.teachers,
-    DrawerPage.courses,
     DrawerPage.groups,
     DrawerPage.attendance,
     DrawerPage.payments,
@@ -53,13 +50,13 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
     final filteredItems = <DrawerItemModel>[];
     final filteredPages = <DrawerPage>[];
 
-    for (int i = 0; i < drawerItems.length; i++) {
+    for (int i = 1; i < drawerItems.length; i++) {
       if (widget.isMobile) {
-        // Only add Students, Teachers, Courses, Groups
         if (drawerPages[i] == DrawerPage.students ||
             drawerPages[i] == DrawerPage.teachers ||
-            drawerPages[i] == DrawerPage.courses ||
-            drawerPages[i] == DrawerPage.groups) {
+            drawerPages[i] == DrawerPage.groups ||
+            drawerPages[i] == DrawerPage.attendance ||
+            drawerPages[i] == DrawerPage.payments) {
           filteredItems.add(drawerItems[i]);
           filteredPages.add(drawerPages[i]);
         }
@@ -91,5 +88,4 @@ class _ListViewDrawerItemState extends State<ListViewDrawerItem> {
   }
 
   // We no longer need updateSelectedIndex as state is driven by activePage
-
 }
