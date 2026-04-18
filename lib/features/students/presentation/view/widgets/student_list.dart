@@ -23,7 +23,7 @@ class StudentList extends StatelessWidget {
     return Expanded(
       child: CustomAnimatedSwitcher(
         isLoading: isLoading,
-        students: students,
+        items: students,
         allCount: allCount,
         child: CustomMobileStudentList(
           students: students,

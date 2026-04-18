@@ -16,11 +16,12 @@ class StudentsViewBodyMobile extends StatelessWidget {
     return BlocConsumer<StudentsCubit, StudentsState>(
       listener: _studentsListener,
       builder: (context, state) {
-        final selectedGrade = state is StudentsLoaded ? state.selectedGrade : 'all';
+        final isLoaded = state is StudentsLoaded;
         final isLoading = state is StudentsLoading;
-        final allCount = state is StudentsLoaded ? state.allStudents.length : 0;
-        final students = state is StudentsLoaded ? state.filteredStudents : <StudentModel>[];
-        final searchQuary = state is StudentsLoaded ? state.searchQuery : '';
+        final selectedGrade = isLoaded ? state.selectedGrade : 'all';
+        final allStudents = isLoaded ? state.allStudents.length : 0;
+        final students = isLoaded ? state.filteredStudents : <StudentModel>[];
+        final searchQuary = isLoaded ? state.searchQuery : '';
         return ConnectivityWrapper(
           onReconnected: () => context.read<StudentsCubit>().getStudents(),
           child: Padding(
@@ -35,7 +36,7 @@ class StudentsViewBodyMobile extends StatelessWidget {
                 StudentList(
                   isLoading: isLoading,
                   students: students,
-                  allCount: allCount,
+                  allCount: allStudents,
                   searchQuary: searchQuary,
                 ),
               ],

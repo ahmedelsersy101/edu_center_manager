@@ -20,7 +20,7 @@ class StudentsTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomAnimatedSwitcher(
       isLoading: isLoading,
-      students: students,
+      items: students,
       allCount: allCount,
       child: CustomDesktopStudentTable(
         students: students,

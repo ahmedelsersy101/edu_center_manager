@@ -4,8 +4,15 @@ import 'package:easy_localization/easy_localization.dart';
 
 class DeleteConfirmDialog extends StatelessWidget {
   final VoidCallback onConfirm;
+  final String title;
+  final String content;
 
-  const DeleteConfirmDialog({super.key, required this.onConfirm});
+  const DeleteConfirmDialog({
+    super.key,
+    required this.onConfirm,
+    required this.title,
+    required this.content,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +22,10 @@ class DeleteConfirmDialog extends StatelessWidget {
         children: [
           Icon(Icons.warning_amber_rounded, color: Colors.redAccent, size: 28),
           const SizedBox(width: 12),
-          Text('confirmDelete'.tr(), style: AppStyles.styleBold18(context)),
+          Text(title, style: AppStyles.styleBold18(context).copyWith(color: Colors.redAccent)),
         ],
       ),
-      content: Text('deleteStudentConfirmMsg'.tr(), style: AppStyles.styleRegular16(context)),
+      content: Text(content, style: AppStyles.styleRegular16(context)),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),

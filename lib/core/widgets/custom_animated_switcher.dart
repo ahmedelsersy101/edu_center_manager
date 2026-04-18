@@ -1,17 +1,16 @@
-import 'package:edu_center_manager/features/students/data/models/student_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomAnimatedSwitcher extends StatelessWidget {
   const CustomAnimatedSwitcher({
     super.key,
     required this.isLoading,
-    required this.students,
+    required this.items,
     required this.allCount,
     required this.child,
   });
 
   final bool isLoading;
-  final List<StudentModel> students;
+  final List items;
   final int allCount;
   final Widget child;
 
@@ -31,7 +30,7 @@ class CustomAnimatedSwitcher extends StatelessWidget {
         );
       },
       child: KeyedSubtree(
-        key: ValueKey<String>('${isLoading}_${students.length}_$allCount'),
+        key: ValueKey<String>('${isLoading}_${items.length}_$allCount'),
         child: child,
       ),
     );

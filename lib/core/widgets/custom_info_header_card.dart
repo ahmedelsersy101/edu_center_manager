@@ -1,16 +1,15 @@
 import 'package:edu_center_manager/core/utils/app_style.dart';
-import 'package:edu_center_manager/features/students/data/models/student_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomInfoHeaderCard extends StatelessWidget {
   const CustomInfoHeaderCard({
     super.key,
-    required this.student,
+    required this.item,
     required this.onEdit,
     required this.onDelete,
   });
 
-  final StudentModel student;
+  final String item;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
 
@@ -21,7 +20,7 @@ class CustomInfoHeaderCard extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            student.name,
+            item,
             style: AppStyles.styleBold24(
               context,
             ).copyWith(color: Theme.of(context).colorScheme.primary),

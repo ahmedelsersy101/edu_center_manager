@@ -1,27 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:edu_center_manager/core/utils/app_style.dart';
 import 'package:edu_center_manager/core/widgets/delete_confirm_dialog.dart';
-import 'package:edu_center_manager/features/students/data/models/student_model.dart';
-import 'package:edu_center_manager/features/students/presentation/view/widgets/show_add_student_form.dart';
-import 'package:edu_center_manager/features/students/presentation/view_model/students_cubit.dart';
+import 'package:edu_center_manager/features/teachers/data/models/teacher_model.dart';
+import 'package:edu_center_manager/features/teachers/presentation/view/widgets/show_add_teacher_form.dart';
+import 'package:edu_center_manager/features/teachers/presentation/view_model/teacher_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void onSearchStudent(BuildContext context, String query) {
-  context.read<StudentsCubit>().searchStudents(query);
+void onSearchTeacher(BuildContext context, String query) {
+  context.read<TeacherCubit>().searchTeacher(query);
 }
 
-void onAddStudent(BuildContext context,bool isMobile) {
-  showStudentForm(
+void onAddTeacher(BuildContext context, bool isMobile) {
+  showTeacherForm(
     context,
     isMobile: isMobile,
-    onSubmit: (newStudent) async {
-      await context.read<StudentsCubit>().addStudent(newStudent);
+    onSubmit: (newTeacher) async {
+      await context.read<TeacherCubit>().addTeacher(newTeacher);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'studentAddedSuccessfully'.tr(),
+              'teacherAddedSuccessfully'.tr(),
               style: AppStyles.styleBold16(
                 context,
               ).copyWith(color: Theme.of(context).colorScheme.onPrimary),
@@ -33,18 +33,18 @@ void onAddStudent(BuildContext context,bool isMobile) {
   );
 }
 
-void onEditStudent(BuildContext context, StudentModel student,bool isMobile) {
-  showStudentForm(
+void onEditTeacher(BuildContext context, TeacherModel teacher, bool isMobile) {
+  showTeacherForm(
     context,
     isMobile: isMobile,
-    student: student,
-    onSubmit: (updatedStudent) async {
-      await context.read<StudentsCubit>().updateStudent(updatedStudent);
+    teacher: teacher,
+    onSubmit: (updateTeacher) async {
+      await context.read<TeacherCubit>().updateTeacher(updateTeacher);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'studentUpdatedSuccessfully'.tr(),
+              'teacherUpdatedSuccessfully'.tr(),
               style: AppStyles.styleBold18(
                 context,
               ).copyWith(color: Theme.of(context).colorScheme.onPrimary),
@@ -56,19 +56,19 @@ void onEditStudent(BuildContext context, StudentModel student,bool isMobile) {
   );
 }
 
-void onDeleteStudent(BuildContext context, StudentModel student) {
+void onDeleteTeacher(BuildContext context, TeacherModel teacher) {
   showDialog(
     context: context,
     builder: (_) => DeleteConfirmDialog(
       title: 'confirmDelete'.tr(),
-      content: 'deleteStudentConfirmMsg'.tr(),
+      content: 'deleteTeacherConfirmMsg'.tr(),
       onConfirm: () async {
-        await context.read<StudentsCubit>().deleteStudent(student.id);
+        await context.read<TeacherCubit>().deleteTeacher(teacher.id);
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                'studentDeletedSuccessfully'.tr(args: [student.name]),
+                'teacherDeletedSuccessfully'.tr(args: [teacher.name]),
                 style: AppStyles.styleBold18(
                   context,
                 ).copyWith(color: Theme.of(context).colorScheme.onPrimary),

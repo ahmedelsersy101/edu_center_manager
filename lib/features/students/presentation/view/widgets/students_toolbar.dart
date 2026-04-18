@@ -22,7 +22,7 @@ class StudentsToolbar extends StatelessWidget {
         if (value != null) context.read<StudentsCubit>().filterByGrade(value);
       },
       onAdd: () => onAddStudent(context, isMobile),
-      onSearch: (query) => onSearch(context, query),
+      onSearch: (query) => onSearchStudent(context, query),
     );
   }
 }

@@ -1,17 +1,17 @@
 import 'package:edu_center_manager/core/widgets/custom_info_header_card.dart';
 import 'package:edu_center_manager/core/widgets/custom_info_row_card.dart';
-import 'package:edu_center_manager/features/students/presentation/view_model/grade_helper.dart';
+import 'package:edu_center_manager/features/teachers/presentation/view_model/subject_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:edu_center_manager/features/students/data/models/student_model.dart';
+import 'package:edu_center_manager/features/teachers/data/models/teacher_model.dart';
 
-class StudentCard extends StatelessWidget {
-  final StudentModel student;
+class TeacherCard extends StatelessWidget {
+  final TeacherModel teacher;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
 
-  const StudentCard({
+  const TeacherCard({
     super.key,
-    required this.student,
+    required this.teacher,
     required this.onEdit,
     required this.onDelete,
   });
@@ -36,25 +36,15 @@ class StudentCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomInfoHeaderCard(item: student.name, onEdit: onEdit, onDelete: onDelete),
+            CustomInfoHeaderCard(item: teacher.name, onEdit: onEdit, onDelete: onDelete),
             const SizedBox(height: 12),
             CustomInfoRowCard(
               icon: Icons.class_outlined,
-              text: GradeHelper.translateGrade(student.grade),
+              text: SubjectHelper.translateGrade(teacher.subject),
               context: context,
             ),
             const SizedBox(height: 8),
-            CustomInfoRowCard(
-              icon: Icons.location_on_outlined,
-              text: student.address,
-              context: context,
-            ),
-            const SizedBox(height: 8),
-            CustomInfoRowCard(
-              icon: Icons.phone_outlined,
-              text: student.parentPhone,
-              context: context,
-            ),
+            CustomInfoRowCard(icon: Icons.phone_outlined, text: teacher.phone!, context: context),
           ],
         ),
       ),

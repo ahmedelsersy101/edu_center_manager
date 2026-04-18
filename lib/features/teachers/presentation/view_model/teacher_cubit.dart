@@ -58,6 +58,16 @@ class TeacherCubit extends Cubit<TeacherState> {
     }
   }
 
+  void searchTeacher(String query) {
+    searchQuery = query;
+    _emitLoadedState();
+  }
+
+  void filterBySubject(String subject) {
+    selectedSubject = subject;
+    _emitLoadedState();
+  }
+
   void _emitLoadedState() {
     List<TeacherModel> filtered = allTeachers;
 
