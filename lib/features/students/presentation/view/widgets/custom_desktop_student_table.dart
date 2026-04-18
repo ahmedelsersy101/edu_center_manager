@@ -104,10 +104,10 @@ class CustomDesktopStudentTable extends StatelessWidget {
             style: const TextStyle(fontFamily: 'cairo'),
           ),
         ),
-        DataCell(Text(student.address ?? '-', style: const TextStyle(fontFamily: 'cairo'))),
+        DataCell(Text(student.address, style: const TextStyle(fontFamily: 'cairo'))),
         DataCell(
           Text(
-            student.parentPhone ?? '-',
+            student.parentPhone,
             style: const TextStyle(fontFamily: 'cairo'),
             // textDirection: TextDirection.ltr,
           ),

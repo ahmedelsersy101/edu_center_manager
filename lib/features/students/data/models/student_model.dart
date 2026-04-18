@@ -1,9 +1,9 @@
 class StudentModel {
   final String id;
   final String name;
-  final String? address;
-  final String? grade;
-  final String? parentPhone;
+  final String address;
+  final String grade;
+  final String parentPhone;
   final String? qrCode;
   final String? groupId;
   final DateTime? createdAt;
@@ -11,9 +11,9 @@ class StudentModel {
   const StudentModel({
     required this.id,
     required this.name,
-    this.address,
-    this.grade,
-    this.parentPhone,
+    required this.address,
+    required this.grade,
+    required this.parentPhone,
     this.qrCode,
     this.groupId,
     this.createdAt,
@@ -22,9 +22,9 @@ class StudentModel {
   factory StudentModel.fromJson(Map<String, dynamic> json) => StudentModel(
     id: json['id'].toString(),
     name: json['name'] as String,
-    address: json['address'] as String?,
-    grade: json['grade'] as String?,
-    parentPhone: json['parent_phone'] as String?,
+    address: json['address'] as String,
+    grade: json['grade'] as String,
+    parentPhone: json['parent_phone'] as String,
     qrCode: json['qr_code'] as String?,
     groupId: json['group_id']?.toString(),
     createdAt: json['created_at'] != null ? DateTime.parse(json['created_at'] as String) : null,

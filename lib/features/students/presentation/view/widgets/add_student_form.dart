@@ -29,8 +29,8 @@ class _StudentFormState extends State<StudentForm> {
     super.initState();
     if (widget.student != null) {
       nameController.text = widget.student!.name;
-      addressController.text = widget.student!.address ?? '';
-      phoneController.text = widget.student!.parentPhone ?? '';
+      addressController.text = widget.student!.address;
+      phoneController.text = widget.student!.parentPhone;
 
       final currentGrade = GradeHelper.gradeKeys(widget.student!.grade);
       if (currentGrade != '--' && GradeHelper.selectGradeKeys.contains(currentGrade)) {

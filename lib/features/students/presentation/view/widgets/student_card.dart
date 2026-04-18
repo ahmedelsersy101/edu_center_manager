@@ -46,13 +46,13 @@ class StudentCard extends StatelessWidget {
             const SizedBox(height: 8),
             CustomInfoRowCard(
               icon: Icons.location_on_outlined,
-              text: student.address ?? '--',
+              text: student.address,
               context: context,
             ),
             const SizedBox(height: 8),
             CustomInfoRowCard(
               icon: Icons.phone_outlined,
-              text: student.parentPhone ?? '--',
+              text: student.parentPhone,
               context: context,
             ),
           ],

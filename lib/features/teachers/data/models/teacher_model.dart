@@ -1,38 +1,41 @@
-// lib/features/teachers/data/models/teacher_model.dart
-
-enum Gender { male, female }
-
 class TeacherModel {
   final String id;
   final String name;
-  final String? subject;
-  final String? phone;
-  final Gender? gender;
-  final String? userId; // FK → profiles.id
+  final String subject;
+  final String phone;
+  final String? userId;
 
-  const TeacherModel({
+  TeacherModel({
     required this.id,
     required this.name,
-    this.subject,
-    this.phone,
-    this.gender,
+    required this.subject,
+    required this.phone,
     this.userId,
   });
 
   factory TeacherModel.fromJson(Map<String, dynamic> json) => TeacherModel(
-    id: json['id'],
-    name: json['name'],
-    subject: json['subject'],
-    phone: json['phone'],
-    gender: json['gender'] != null ? Gender.values.byName(json['gender']) : null,
-    userId: json['user_id'],
+    id: json['id'].toString(),
+    name: json['name'] as String,
+    subject: json['subject'] as String,
+    phone: json['phone'] as String,
+    userId: json['user_id'] as String,
   );
 
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'subject': subject,
-    'phone': phone,
-    'gender': gender?.name,
-    'user_id': userId,
-  };
+  Map<String, dynamic> toTeacherTableJson() => {'name': name, 'subject': subject, 'phone': phone};
+
+  TeacherModel copyWith({
+    String? id,
+    String? name,
+    String? subject,
+    String? phone,
+    String? userId,
+  }) {
+    return TeacherModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      subject: subject ?? this.subject,
+      phone: phone ?? this.phone,
+      userId: userId ?? this.userId,
+    );
+  }
 }
