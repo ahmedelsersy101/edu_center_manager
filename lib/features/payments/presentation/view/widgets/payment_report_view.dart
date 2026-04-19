@@ -6,6 +6,6 @@ class PaymentReportView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('paymentsReport').tr()));
+    return Scaffold(body: Center(child: const Text('paymentsReport').tr()));
   }
 }

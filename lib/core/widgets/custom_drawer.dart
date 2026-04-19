@@ -41,7 +41,7 @@ class CustomDrawer extends StatelessWidget {
           SliverToBoxAdapter(
             child: Divider(color: Theme.of(context).colorScheme.surface, height: 1, thickness: 1),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: UserInfoListTile(
               userInfoModel: UserInfoModel(
                 image: Assets.logo,

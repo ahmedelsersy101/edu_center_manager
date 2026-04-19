@@ -6,6 +6,6 @@ class AttendanceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: AttendanceViewBody());
+    return const Scaffold(body: AttendanceViewBody());
   }
 }

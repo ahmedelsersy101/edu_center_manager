@@ -18,8 +18,8 @@ class StudentsView extends StatelessWidget {
       create: (context) => getIt<StudentsCubit>()..getStudents(),
       child: Scaffold(
         body: AdaptiveLayout(
-          mobileLayout: (context) => StudentsViewBodyMobile(),
-          desktopLayout: (context) => StudentsViewBodyDesktop(),
+          mobileLayout: (context) => const StudentsViewBodyMobile(),
+          desktopLayout: (context) => const StudentsViewBodyDesktop(),
         ),
       ),
     );

@@ -39,7 +39,7 @@ class CustomInfoHeaderCard extends StatelessWidget {
               padding: const EdgeInsets.all(4),
             ),
             IconButton(
-              icon: Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+              icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
               onPressed: onDelete,
               constraints: const BoxConstraints(),
               padding: const EdgeInsets.all(4),

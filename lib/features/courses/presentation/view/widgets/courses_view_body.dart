@@ -6,6 +6,6 @@ class CoursesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('courses').tr());
+    return Center(child: const Text('courses').tr());
   }
 }

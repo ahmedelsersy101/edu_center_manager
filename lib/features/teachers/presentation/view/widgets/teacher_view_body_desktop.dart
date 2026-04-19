@@ -25,11 +25,11 @@ class TeachersViewBodyDesktop extends StatelessWidget {
         return ConnectivityWrapper(
           onReconnected: () => context.read<TeacherCubit>().getTeachers(),
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TeachersHeader(isMobile: false),
+                const TeachersHeader(isMobile: false),
                 const SizedBox(height: 24),
                 TeachersToolbar(selecteSubject: selecteSubject, isMobile: false),
                 const SizedBox(height: 24),

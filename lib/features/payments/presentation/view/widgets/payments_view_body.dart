@@ -6,6 +6,6 @@ class PaymentsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('payments').tr());
+    return Center(child: const Text('payments').tr());
   }
 }

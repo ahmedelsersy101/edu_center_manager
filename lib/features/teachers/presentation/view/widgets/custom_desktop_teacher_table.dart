@@ -23,7 +23,7 @@ class CustomDesktopTeacherTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return ShimmerTable();
+      return const ShimmerTable();
     }
 
     if (teachers.isEmpty) {

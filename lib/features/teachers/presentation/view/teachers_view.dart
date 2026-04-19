@@ -17,8 +17,8 @@ class TeachersView extends StatelessWidget {
       create: (context) => getIt<TeacherCubit>()..getTeachers(),
       child: Scaffold(
         body: AdaptiveLayout(
-          mobileLayout: (context) => TeachersViewBodyMobile(),
-          desktopLayout: (context) => TeachersViewBodyDesktop(),
+          mobileLayout: (context) => const TeachersViewBodyMobile(),
+          desktopLayout: (context) => const TeachersViewBodyDesktop(),
         ),
       ),
     );

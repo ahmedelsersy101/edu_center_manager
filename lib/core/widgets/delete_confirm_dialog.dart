@@ -20,7 +20,7 @@ class DeleteConfirmDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       title: Row(
         children: [
-          Icon(Icons.warning_amber_rounded, color: Colors.redAccent, size: 28),
+          const Icon(Icons.warning_amber_rounded, color: Colors.redAccent, size: 28),
           const SizedBox(width: 12),
           Text(title, style: AppStyles.styleBold18(context).copyWith(color: Colors.redAccent)),
         ],

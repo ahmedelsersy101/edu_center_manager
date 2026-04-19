@@ -25,8 +25,8 @@ void main() async {
       enabled: false,
       builder: (context) => EasyLocalization(
         supportedLocales: const [Locale("ar"), Locale('en')],
-        fallbackLocale: Locale('ar'),
-        startLocale: Locale('ar'),
+        fallbackLocale: const Locale('ar'),
+        startLocale: const Locale('ar'),
         path: 'assets/translations',
         child: EduCenterManager(router: router),
       ),

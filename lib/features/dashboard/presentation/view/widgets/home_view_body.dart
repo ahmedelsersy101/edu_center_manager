@@ -6,6 +6,6 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('home').tr());
+    return Center(child: const Text('home').tr());
   }
 }

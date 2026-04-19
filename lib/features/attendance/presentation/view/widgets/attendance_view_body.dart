@@ -6,6 +6,6 @@ class AttendanceViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('attendance').tr());
+    return Center(child: const Text('attendance').tr());
   }
 }

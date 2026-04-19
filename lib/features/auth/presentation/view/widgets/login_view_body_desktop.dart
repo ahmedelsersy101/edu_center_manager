@@ -33,7 +33,7 @@ class LoginViewBodyDesktop extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Image.asset(Assets.logo, height: 140, color: Colors.white),
                           const SizedBox(height: 24),
                           Text(
@@ -52,9 +52,9 @@ class LoginViewBodyDesktop extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 48),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 48),
+                      const SizedBox(height: 48),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 48),
                         child: LoginFormCard(
                           padding: EdgeInsets.all(24),
                           maxWidth: double.infinity,

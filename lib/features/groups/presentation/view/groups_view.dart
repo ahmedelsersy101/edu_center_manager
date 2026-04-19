@@ -6,6 +6,6 @@ class GroupsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: GroupsViewBody());
+    return const Scaffold(body: GroupsViewBody());
   }
 }

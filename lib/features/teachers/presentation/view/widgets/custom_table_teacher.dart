@@ -100,7 +100,7 @@ class CustomTableTeacher extends StatelessWidget {
                 tooltip: 'edit'.tr(),
               ),
               IconButton(
-                icon: Icon(Icons.delete_outline, color: Colors.red, size: 20),
+                icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
                 onPressed: () => onDelete(teacher),
                 tooltip: 'delete'.tr(),
               ),

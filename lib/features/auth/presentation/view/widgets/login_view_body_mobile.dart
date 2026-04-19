@@ -44,7 +44,7 @@ class LoginViewBodyMobile extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 48),
+              const SizedBox(height: 48),
               const LoginFormCard(padding: EdgeInsets.all(24), maxWidth: double.infinity),
             ],
           ),
