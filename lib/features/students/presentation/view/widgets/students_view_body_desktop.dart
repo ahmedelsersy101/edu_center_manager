@@ -1,4 +1,4 @@
-import 'package:edu_center_manager/core/utils/app_style.dart';
+import 'package:edu_center_manager/core/helper/show_error_message.dart';
 import 'package:edu_center_manager/core/widgets/connectivity_wrapper.dart';
 import 'package:edu_center_manager/features/students/data/models/student_model.dart';
 import 'package:edu_center_manager/features/students/presentation/view/widgets/students_header.dart';
@@ -43,17 +43,7 @@ class StudentsViewBodyDesktop extends StatelessWidget {
 
   void _studentsListener(BuildContext context, StudentsState state) {
     if (state is StudentsError) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            state.message,
-            style: AppStyles.styleBold18(
-              context,
-            ).copyWith(color: Theme.of(context).colorScheme.onPrimary),
-          ),
-          backgroundColor: Colors.red,
-        ),
-      );
+      context.showErrorMessage(state.message);
     }
   }
 }
