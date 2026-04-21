@@ -1,5 +1,5 @@
 {
-  "language": "English",
+  "language": "Language",
   "appTitle": "EduCenter Management",
   "loginToYourAccount": "Login to your Account",
   "enterYourEmailAndPasswordToLogIn": "Enter your email and password to log in",
@@ -92,5 +92,9 @@
   "religion": "Religion",
   "french": "French",
   "german": "German",
-  "spanish": "Spanish"
+  "spanish": "Spanish",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System"
 }
