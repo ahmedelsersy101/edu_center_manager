@@ -56,7 +56,9 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       emit(LoginFailure(e.toString()));
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Login Failed')));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('Please enter a valid email and password')));
       }
       debugPrint('Login error: $e');
     }
