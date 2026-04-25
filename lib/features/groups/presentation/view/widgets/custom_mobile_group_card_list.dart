@@ -6,9 +6,10 @@ import 'package:edu_center_manager/features/groups/presentation/helper/group_act
 import 'package:edu_center_manager/features/groups/presentation/view/widgets/group_card.dart';
 import 'package:edu_center_manager/features/groups/presentation/view/widgets/shimmer_info_group_card.dart';
 import 'package:edu_center_manager/features/teachers/data/models/teacher_model.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 
-class CustomMobileGroupCardList extends StatelessWidget {
+class CustomMobileGroupCardList extends StatefulWidget {
   const CustomMobileGroupCardList({
     super.key,
     required this.groups,
@@ -29,29 +30,64 @@ class CustomMobileGroupCardList extends StatelessWidget {
   final bool filteredEmpty;
 
   @override
+  State<CustomMobileGroupCardList> createState() => _CustomMobileGroupCardListState();
+}
+
+class _CustomMobileGroupCardListState extends State<CustomMobileGroupCardList> {
+  late List<GlobalKey<ExpansionTileCardState>> _keys;
+
+  @override
+  void initState() {
+    super.initState();
+    _buildKeys();
+  }
+
+  @override
+  void didUpdateWidget(CustomMobileGroupCardList oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.groups.length != widget.groups.length) {
+      _buildKeys();
+    }
+  }
+
+  void _buildKeys() {
+    _keys = List.generate(widget.groups.length, (_) => GlobalKey<ExpansionTileCardState>());
+  }
+
+  void _collapseOthers(int expandedIndex) {
+    for (int i = 0; i < _keys.length; i++) {
+      if (i != expandedIndex) {
+        _keys[i].currentState?.collapse();
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (isLoading) {
+    if (widget.isLoading) {
       return const ShimmerGroupCard();
     }
 
-    if (groups.isEmpty) {
+    if (widget.groups.isEmpty) {
       return CustomEmptyState(
-        text: filteredEmpty ? 'groupsViewEmptySearch'.tr() : 'groupsViewEmptyNone'.tr(),
+        text: widget.filteredEmpty ? 'groupsViewEmptySearch'.tr() : 'groupsViewEmptyNone'.tr(),
         icon: Icons.group,
       );
     }
 
     return ListView.builder(
-      itemCount: groups.length,
+      itemCount: widget.groups.length,
       itemBuilder: (context, index) {
-        final group = groups[index];
+        final group = widget.groups[index];
         return GroupCard(
+          cardKey: _keys[index],
+          onExpansionChanged: () => _collapseOthers(index),
           group: group,
-          teachers: teachers,
-          schedules: schedulesByGroupId[group.id] ?? const [],
-          studentsInGroup: studentCountByGroupId[group.id] ?? 0,
+          teachers: widget.teachers,
+          schedules: widget.schedulesByGroupId[group.id] ?? const [],
+          studentsInGroup: widget.studentCountByGroupId[group.id] ?? 0,
           onStudents: () {},
-          onEdit: () => onEditGroup(context, group, true, teachers),
+          onEdit: () => onEditGroup(context, group, true, widget.teachers),
           onDelete: () => onDeleteGroup(context, group),
         );
       },

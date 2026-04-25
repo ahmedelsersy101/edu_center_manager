@@ -17,11 +17,15 @@ class GroupCard extends StatelessWidget {
   final VoidCallback onStudents;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
+  final GlobalKey<ExpansionTileCardState> cardKey;
+  final VoidCallback onExpansionChanged;
 
   const GroupCard({
     super.key,
     required this.group,
     required this.teachers,
+    required this.cardKey,
+    required this.onExpansionChanged,
     this.schedules = const [],
     this.studentsInGroup = 0,
     required this.onStudents,
@@ -44,8 +48,12 @@ class GroupCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: ExpansionTileCard(
+        key: cardKey,
         borderRadius: BorderRadius.circular(16),
         expandedTextColor: context.colors.primaryText,
+        onExpansionChanged: (isExpanded) {
+          if (isExpanded) onExpansionChanged();
+        },
         title: HeaderGroupCard(group: group, onEdit: onEdit, onDelete: onDelete),
         children: [
           Column(
